@@ -64,7 +64,9 @@ def get_messages():
 
 @app.route("/status")
 def print_status():
-    return 'Ok!'
+    return {
+        'status': 'Ok!',
+    }
 
 
 
