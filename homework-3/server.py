@@ -64,9 +64,19 @@ def get_messages():
 
 @app.route("/status")
 def print_status():
-    return {
-        'status': 'Ok!',
-    }
+    messages_volume = 0
+    users = set()
+    for message in db:
+        messages_volume += 1
+        users.add('<li>' + message['name'] + '</li>')
+    return "<p><strong>СТАТУС СЕРВЕРА:</strong></p>" \
+           "<p>Всего пользователей: {users_volume}</p>" \
+           "<p>Список пользователей: <ul>{users}</ul></p>" \
+           "<p>Всего сообщений: {messages_volume}</p>".format(
+        users_volume=len(users),
+        users=''.join(users),
+        messages_volume=messages_volume
+    )
 
 
 
