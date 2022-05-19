@@ -70,8 +70,8 @@ def print_status():
         messages_volume += 1
         users.add('<li>' + message['name'] + '</li>')
     return "<p><strong>СТАТУС СЕРВЕРА:</strong></p>" \
-           "<p>Всего пользователей: {users_volume}</p>" \
            "<p>Список пользователей: <ul>{users}</ul></p>" \
+           "<p>Всего пользователей: {users_volume}</p>" \
            "<p>Всего сообщений: {messages_volume}</p>".format(
         users_volume=len(users),
         users=''.join(users),
